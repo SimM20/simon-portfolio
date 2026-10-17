@@ -249,9 +249,34 @@
       });
     });
 
-    const spy = bootstrap.ScrollSpy.getInstance(document.body);
-    if (spy) spy.refresh();
+    observeSections();
     onScroll();
+  }
+
+  /* ------------------------------------------------------------------
+     Link activo del menú según la sección visible
+     (reemplaza al ScrollSpy de Bootstrap, que medía mal el scroll)
+     ------------------------------------------------------------------ */
+  let sectionObserver;
+  function setActiveLink(id) {
+    $$("#navLinks .nav-link").forEach((a) => {
+      const on = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("active", on);
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+  }
+  function observeSections() {
+    if (sectionObserver) sectionObserver.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+    // Una franja en el medio de la pantalla: la sección que la cruza es la activa
+    sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) setActiveLink(en.target.id); });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    $$("#navLinks .nav-link").forEach((a) => {
+      const sec = document.querySelector(a.getAttribute("href"));
+      if (sec && !sec.classList.contains("d-none")) sectionObserver.observe(sec);
+    });
+    sectionObserver.observe($("#hero"));
   }
 
   function bindTilt(el) {
@@ -323,6 +348,8 @@
 
   // Cierra el menú mobile al tocar un link
   $$("#navLinks .nav-link").forEach((a) => a.addEventListener("click", () => {
+    setActiveLink(a.getAttribute("href").slice(1));
+    a.blur();
     const c = bootstrap.Collapse.getInstance($("#navLinks"));
     if (c) c.hide();
   }));

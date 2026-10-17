@@ -142,16 +142,23 @@ body.has-pointer .cursor-glow { opacity: 1; }
   content: ""; position: absolute; left: .9rem; right: .9rem; bottom: .2rem; height: 2px; border-radius: 2px;
   background: var(--gradient); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-out);
 }
-.navbar .nav-link:hover, .navbar .nav-link.active { color: var(--text); }
-.navbar .nav-link:hover::after, .navbar .nav-link.active::after { transform: scaleX(1); }
+.navbar .nav-link.active { color: var(--text); }
+.navbar .nav-link.active::after { transform: scaleX(1); }
+/* Sólo con mouse: en pantallas táctiles el :hover queda "pegado" después de tocar */
+@media (hover: hover) {
+  .navbar .nav-link:hover { color: var(--text); }
+  .navbar .nav-link:hover::after { transform: scaleX(1); }
+}
 
 @media (max-width: 991.98px) {
   .navbar-collapse {
     position: absolute; top: calc(100% + 8px); left: 12px; right: 12px;
-    background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--bg-alt) 96%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
     border: 1px solid var(--border); border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow);
   }
   .navbar .nav-link::after { display: none; }
+  .navbar .nav-link { border-radius: .6rem; padding: .7rem .9rem !important; }
+  .navbar .nav-link.active { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
 }
 
 /* ---------- Hero ---------- */
