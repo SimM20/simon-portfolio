@@ -14,7 +14,9 @@ Otros archivos útiles:
 
 | Qué | Dónde |
 | --- | --- |
-| Foto de perfil | `assets/img/simon.png` |
+| Foto de perfil | `assets/img/simon.jpg` |
+| Imagen al compartir el link (1200×630) | `assets/img/og.jpg` |
+| Título, descripción y datos para Google | `<head>` de `index.html` |
 | CV descargable | `assets/SimonMoralesLozano-CV-Eng.pdf` (ruta en `data.js` → `cv`) |
 | Proyectos | `projects` en `data.js` (la sección aparece sola cuando hay al menos uno) |
 | Colores / estilos | variables al principio de `css/style.css` |

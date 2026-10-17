@@ -29,7 +29,9 @@
       "theme.label": "Cambiar tema",
       "kicker.about": "Perfil", "kicker.experience": "Trayectoria", "kicker.education": "Formación",
       "kicker.skills": "Stack & herramientas", "kicker.projects": "Trabajos",
-      "xp.more": "Ver detalle", "xp.less": "Ocultar detalle", "xp.current": "Actual", "edu.current": "En curso"
+      "xp.more": "Ver detalle", "xp.less": "Ocultar detalle", "xp.current": "Actual", "edu.current": "En curso",
+      "meta.title": "Simón Morales Lozano | Software Developer y Analista de Soluciones Digitales",
+      "meta.description": "Simón Morales Lozano, Software Developer y Analista de Soluciones Digitales en Argentina. Automatización, integración de datos, C++, Unreal Engine y Unity."
     },
     en: {
       "nav.about": "About", "nav.experience": "Experience", "nav.education": "Education",
@@ -44,7 +46,9 @@
       "theme.label": "Toggle theme",
       "kicker.about": "Profile", "kicker.experience": "Career", "kicker.education": "Background",
       "kicker.skills": "Stack & tools", "kicker.projects": "Work",
-      "xp.more": "Show details", "xp.less": "Hide details", "xp.current": "Current", "edu.current": "Ongoing"
+      "xp.more": "Show details", "xp.less": "Hide details", "xp.current": "Current", "edu.current": "Ongoing",
+      "meta.title": "Simón Morales Lozano | Software Developer & Digital Solutions Analyst",
+      "meta.description": "Simón Morales Lozano, Software Developer and Digital Solutions Analyst based in Argentina. Automation, data integration, C++, Unreal Engine and Unity."
     }
   };
 
@@ -67,6 +71,8 @@
 
   function render() {
     document.documentElement.lang = lang;
+    document.title = t("meta.title");
+    $('meta[name="description"]').setAttribute("content", t("meta.description"));
 
     $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
     // Los títulos de sección se envuelven para animarlos "subiendo" desde una máscara

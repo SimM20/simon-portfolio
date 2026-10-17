@@ -10,7 +10,7 @@ window.CV = {
 
   name: "Simón Morales Lozano",
   shortName: "Simón",
-  photo: "assets/img/simon.png",
+  photo: "assets/img/simon.jpg",
 
   contact: {
     email: "simon.moraleslozano@live.com",
