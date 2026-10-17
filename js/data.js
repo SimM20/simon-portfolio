@@ -59,22 +59,22 @@ window.CV = {
       company: "Venoil S.A. · IT",
       bullets: {
         es: [
-          "<strong>Desarrollé un software de adquisición de datos</strong> que lee mediciones de medidores industriales a través de OPC.",
+          "<strong>Desarrollé en Python un software de adquisición de datos</strong> que lee mediciones de instrumentos industriales a través de OPC.",
           "<strong>Desarrollé un software de integración</strong> que procesa esas mediciones y las sube automáticamente a un sistema externo.",
           "Colaboro con Recursos Humanos en la <strong>implementación de chatbots</strong> para agilizar consultas y procesos internos.",
-          "Diseño e implemento <strong>soluciones digitales y automatizaciones</strong> para distintas áreas de la empresa."
+          "Diseño e implemento <strong>automatizaciones con Power Automate, n8n y Microsoft Teams</strong> para distintas áreas de la empresa."
         ],
         en: [
-          "<strong>Developed a data acquisition software</strong> that reads measurements from industrial meters over OPC.",
+          "<strong>Built a Python data acquisition software</strong> that reads measurements from industrial instruments over OPC.",
           "<strong>Developed an integration software</strong> that processes those measurements and automatically uploads them to an external system.",
           "Support Human Resources in <strong>implementing chatbots</strong> to streamline internal queries and processes.",
-          "Design and implement <strong>digital solutions and automations</strong> for different areas of the company."
+          "Design and implement <strong>automations with Power Automate, n8n and Microsoft Teams</strong> for different areas of the company."
         ]
       },
-      tags: ["OPC", "Data Integration", "Automation", "Chatbots", "Oil & Gas"]
+      tags: ["Python", "OPC", "Power Automate", "n8n", "Microsoft Teams", "Windows Server", "Git", "Chatbots"]
     },
     {
-      period: { es: "2026 · hasta julio", en: "2026 · until July" },
+      period: { es: "Ene — Jul 2026", en: "Jan — Jul 2026" },
       title: { es: "Game Developer", en: "Game Developer" },
       company: "Globant",
       bullets: {
@@ -167,9 +167,9 @@ window.CV = {
     { icon: "bi-brush",           title: { es: "Diseño & Arte", en: "Design & Art" },
       items: ["Blender", "Adobe Creative Cloud", "UI/UX Design"] },
     { icon: "bi-tools",           title: { es: "Herramientas", en: "Dev Tools" },
-      items: ["GitHub / GitLab", "Visual Studio", "Trello / Notion"] },
+      items: ["Git", "GitHub / GitLab", "Visual Studio", "Windows Server", "Trello / Notion"] },
     { icon: "bi-diagram-3",       title: { es: "Automatización & Datos", en: "Automation & Data" },
-      items: { es: ["OPC", "Integración de datos", "Automatización de procesos", "Chatbots"], en: ["OPC", "Data Integration", "Process Automation", "Chatbots"] } },
+      items: { es: ["Power Automate", "n8n", "Microsoft Teams", "OPC", "Integración de datos", "Chatbots"], en: ["Power Automate", "n8n", "Microsoft Teams", "OPC", "Data Integration", "Chatbots"] } },
     { icon: "bi-people",          title: { es: "Soft Skills & Comunicación", en: "Soft Skills & Communication" },
       items: { es: ["Resolución de problemas", "Autoaprendizaje", "Comunicación", "Community Management"], en: ["Problem Solving", "Self-Learning", "Communication", "Community Management"] } }
   ],
