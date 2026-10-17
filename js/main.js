@@ -110,7 +110,7 @@
         <div class="card glass spotlight tl-card">
           <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
             <div>
-              <span class="tl-period">${esc(e.period)}</span>
+              <span class="tl-period">${esc(tr(e.period))}${e.current ? `<span class="badge-current">● ${lang === "es" ? "Actual" : "Current"}</span>` : ""}</span>
               <h3 class="tl-title">${esc(tr(e.title))}</h3>
               ${e.company ? `<span class="tl-company"><i class="bi bi-building"></i>${esc(e.company)}</span>` : ""}
             </div>

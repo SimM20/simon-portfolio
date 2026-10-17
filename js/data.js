@@ -28,32 +28,53 @@ window.CV = {
 
   // Frases que se van "tipeando" en la portada
   roles: {
-    es: ["Software Developer", "Desarrollador C++", "Game Developer", "Unreal Engine & Unity", "Diseño UI/UX"],
-    en: ["Software Developer", "C++ Developer", "Game Developer", "Unreal Engine & Unity", "UI/UX Design"]
+    es: ["Software Developer", "Analista de Soluciones Digitales", "Desarrollador C++", "Game Developer", "Automatización & Datos", "Unreal Engine & Unity"],
+    en: ["Software Developer", "Digital Solutions Analyst", "C++ Developer", "Game Developer", "Automation & Data", "Unreal Engine & Unity"]
   },
 
   headline: {
-    es: "Construyo software, juegos y experiencias interactivas.",
-    en: "I build software, games and interactive experiences."
+    es: "Construyo software, automatizaciones y experiencias interactivas.",
+    en: "I build software, automations and interactive experiences."
   },
 
   summary: {
-    es: "Software Developer especializado en C++ y desarrollo de videojuegos, con experiencia práctica en sistemas AAA, entornos de realidad virtual y lógica de alto rendimiento. Tengo base en Ingeniería en Computación, diseño UI/UX y manejo de memoria. Me apasiona construir software, experiencias interactivas e interfaces intuitivas.",
-    en: "Software Developer specialized in C++ and game development, with hands-on experience in AAA systems, VR environments, and high-performance logic. Strong background in Computer Engineering foundations, UI/UX design, and memory management. Passionate about building software, interactive experiences, and intuitive user interfaces."
+    es: "Actualmente soy Analista de Soluciones Digitales en el área de IT de Venoil S.A., donde desarrollo software de integración de datos industriales, automatizaciones y chatbots. Vengo del desarrollo de videojuegos y C++, con experiencia en sistemas AAA, entornos de realidad virtual y lógica de alto rendimiento, y base en Ingeniería en Computación, diseño UI/UX y manejo de memoria. Me apasiona construir software que resuelva problemas reales, con interfaces intuitivas.",
+    en: "I'm currently a Digital Solutions Analyst in the IT department at Venoil S.A., building industrial data integration software, automations and chatbots. My background is in game development and C++, with hands-on experience in AAA systems, VR environments and high-performance logic, plus foundations in Computer Engineering, UI/UX design and memory management. Passionate about building software that solves real problems, with intuitive interfaces."
   },
 
   // Datos destacados que aparecen en "Sobre mí"
   highlights: [
     { icon: "bi-cpu",          value: "C++",    label: { es: "Lenguaje principal", en: "Main language" } },
     { icon: "bi-controller",   value: "AAA",    label: { es: "Sistemas de gameplay", en: "Gameplay systems" } },
-    { icon: "bi-headset-vr",   value: "VR",     label: { es: "Experiencias inmersivas", en: "Immersive experiences" } },
-    { icon: "bi-palette2",     value: "UI/UX",  label: { es: "Interfaces intuitivas", en: "Intuitive interfaces" } }
+    { icon: "bi-diagram-3",    value: "IT",     label: { es: "Soluciones digitales", en: "Digital solutions" } },
+    { icon: "bi-headset-vr",   value: "VR",     label: { es: "Experiencias inmersivas", en: "Immersive experiences" } }
   ],
 
-  // Experiencia — la más reciente primero
+  // Experiencia — la más reciente primero. `current: true` muestra el badge "Actual".
   experience: [
     {
-      period: "2026",
+      period: { es: "Ago 2026 — Actualidad", en: "Aug 2026 — Present" },
+      current: true,
+      title: { es: "Analista de Soluciones Digitales", en: "Digital Solutions Analyst" },
+      company: "Venoil S.A. · IT",
+      bullets: {
+        es: [
+          "<strong>Desarrollé un software de adquisición de datos</strong> que lee mediciones de medidores industriales a través de OPC.",
+          "<strong>Desarrollé un software de integración</strong> que procesa esas mediciones y las sube automáticamente a un sistema externo.",
+          "Colaboro con Recursos Humanos en la <strong>implementación de chatbots</strong> para agilizar consultas y procesos internos.",
+          "Diseño e implemento <strong>soluciones digitales y automatizaciones</strong> para distintas áreas de la empresa."
+        ],
+        en: [
+          "<strong>Developed a data acquisition software</strong> that reads measurements from industrial meters over OPC.",
+          "<strong>Developed an integration software</strong> that processes those measurements and automatically uploads them to an external system.",
+          "Support Human Resources in <strong>implementing chatbots</strong> to streamline internal queries and processes.",
+          "Design and implement <strong>digital solutions and automations</strong> for different areas of the company."
+        ]
+      },
+      tags: ["OPC", "Data Integration", "Automation", "Chatbots", "Oil & Gas"]
+    },
+    {
+      period: { es: "2026 · hasta julio", en: "2026 · until July" },
       title: { es: "Game Developer", en: "Game Developer" },
       company: "Globant",
       bullets: {
@@ -147,10 +168,10 @@ window.CV = {
       items: ["Blender", "Adobe Creative Cloud", "UI/UX Design"] },
     { icon: "bi-tools",           title: { es: "Herramientas", en: "Dev Tools" },
       items: ["GitHub / GitLab", "Visual Studio", "Trello / Notion"] },
-    { icon: "bi-people",          title: { es: "Comunicación", en: "Communication" },
-      items: { es: ["Gestión de redes sociales", "Community Management"], en: ["Social Media Management", "Community Management"] } },
-    { icon: "bi-lightbulb",       title: { es: "Soft Skills", en: "Soft Skills" },
-      items: { es: ["Resolución de problemas", "Autoaprendizaje", "Comunicación"], en: ["Problem Solving", "Self-Learning", "Communication"] } }
+    { icon: "bi-diagram-3",       title: { es: "Automatización & Datos", en: "Automation & Data" },
+      items: { es: ["OPC", "Integración de datos", "Automatización de procesos", "Chatbots"], en: ["OPC", "Data Integration", "Process Automation", "Chatbots"] } },
+    { icon: "bi-people",          title: { es: "Soft Skills & Comunicación", en: "Soft Skills & Communication" },
+      items: { es: ["Resolución de problemas", "Autoaprendizaje", "Comunicación", "Community Management"], en: ["Problem Solving", "Self-Learning", "Communication", "Community Management"] } }
   ],
 
   languages: [
