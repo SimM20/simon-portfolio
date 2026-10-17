@@ -96,7 +96,7 @@
       </div></div>`).join("");
 
     $("#highlights").innerHTML = D.highlights.map((h, i) => `
-      <div class="col-6 reveal zoom" style="--delay:${i * 90}ms">
+      <div class="reveal zoom" style="--delay:${i * 90}ms">
         <div class="card glass spotlight tilt highlight-card">
           <i class="bi ${h.icon}"></i>
           <div><div class="highlight-value">${esc(h.value)}</div><div class="highlight-label">${esc(tr(h.label))}</div></div>
