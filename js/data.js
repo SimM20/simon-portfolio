@@ -17,7 +17,7 @@ window.CV = {
     phone: "+54 2966 641728",      // dejalo vacío ("") para ocultarlo
     whatsapp: "542966641728",      // sólo números, para el link de WhatsApp
     github: "https://github.com/SimM20",
-    linkedin: "",                  // pegá acá la URL de tu LinkedIn
+    linkedin: "https://www.linkedin.com/in/sim%C3%B3n-morales-lozano-842372248/",
     location: { es: "Argentina", en: "Argentina" }
   },
 
