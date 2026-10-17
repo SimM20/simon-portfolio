@@ -26,7 +26,10 @@
       "contact.sub": "Estoy abierto a nuevas oportunidades, proyectos y colaboraciones. Escribime y te respondo a la brevedad.",
       "contact.email": "Enviar email", "contact.copy": "Copiar email", "contact.copied": "Email copiado al portapapeles",
       "footer.updated": "Última actualización", "lang.switch": "EN", "lang.label": "Switch to English",
-      "theme.label": "Cambiar tema"
+      "theme.label": "Cambiar tema",
+      "kicker.about": "Perfil", "kicker.experience": "Trayectoria", "kicker.education": "Formación",
+      "kicker.skills": "Stack & herramientas", "kicker.projects": "Trabajos",
+      "xp.more": "Ver detalle", "xp.less": "Ocultar detalle", "xp.current": "Actual", "edu.current": "En curso"
     },
     en: {
       "nav.about": "About", "nav.experience": "Experience", "nav.education": "Education",
@@ -38,7 +41,10 @@
       "contact.sub": "I'm open to new opportunities, projects and collaborations. Drop me a line and I'll get back to you soon.",
       "contact.email": "Send email", "contact.copy": "Copy email", "contact.copied": "Email copied to clipboard",
       "footer.updated": "Last updated", "lang.switch": "ES", "lang.label": "Cambiar a español",
-      "theme.label": "Toggle theme"
+      "theme.label": "Toggle theme",
+      "kicker.about": "Profile", "kicker.experience": "Career", "kicker.education": "Background",
+      "kicker.skills": "Stack & tools", "kicker.projects": "Work",
+      "xp.more": "Show details", "xp.less": "Hide details", "xp.current": "Current", "edu.current": "Ongoing"
     }
   };
 
@@ -63,6 +69,8 @@
     document.documentElement.lang = lang;
 
     $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    // Los títulos de sección se envuelven para animarlos "subiendo" desde una máscara
+    $$(".section-title").forEach((el) => { el.innerHTML = `<span class="st-inner">${esc(el.textContent)}</span>`; });
 
     // Hero
     const parts = D.name.split(" ");
@@ -84,13 +92,13 @@
     $("#aboutHeadline").textContent = tr(D.headline);
     $("#aboutSummary").textContent = tr(D.summary);
     const info = [
-      { icon: "bi-geo-alt", label: t("about.location"), value: esc(tr(D.contact.location)) },
-      { icon: "bi-envelope", label: t("about.email"), value: `<a href="mailto:${esc(D.contact.email)}">${esc(D.contact.email)}</a>`, wide: true },
+      { icon: "bi-geo-alt", label: t("about.location"), value: esc(tr(D.contact.location)), cols: "col-xl-2" },
+      { icon: "bi-envelope", label: t("about.email"), value: `<a href="mailto:${esc(D.contact.email)}">${esc(D.contact.email)}</a>`, cols: "col-xl-4" },
       D.contact.phone && { icon: "bi-telephone", label: t("about.phone"), value: `<a href="https://wa.me/${esc(D.contact.whatsapp)}" target="_blank" rel="noopener">${esc(D.contact.phone)}</a>` },
       { icon: "bi-translate", label: t("about.languages"), value: D.languages.map((l) => esc(tr(l.name))).join(" · ") }
     ].filter(Boolean);
     $("#aboutInfo").innerHTML = info.map((i) => `
-      <div class="${i.wide ? "col-12" : "col-sm-6"}"><div class="info-item">
+      <div class="col-sm-6 ${i.cols || "col-xl-3"} reveal"><div class="card glass info-item">
         <div class="info-icon"><i class="bi ${i.icon}"></i></div>
         <div class="min-w-0"><div class="info-label">${i.label}</div><div class="info-value">${i.value}</div></div>
       </div></div>`).join("");
@@ -104,47 +112,54 @@
       </div>`).join("");
 
     // Experience
-    $("#timelineItems").innerHTML = D.experience.map((e) => `
-      <div class="tl-item reveal from-left">
-        <span class="tl-dot"></span>
-        <div class="card glass spotlight tl-card">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
-            <div>
-              <span class="tl-period">${esc(tr(e.period))}${e.current ? `<span class="badge-current">● ${lang === "es" ? "Actual" : "Current"}</span>` : ""}</span>
-              <h3 class="tl-title">${esc(tr(e.title))}</h3>
-              ${e.company ? `<span class="tl-company"><i class="bi bi-building"></i>${esc(e.company)}</span>` : ""}
-            </div>
+    // Experience: puesto en grande, detalle desplegable
+    $("#timelineItems").innerHTML = D.experience.map((e, i) => `
+      <article class="card glass spotlight xp-item reveal${e.current ? " is-current" : ""}">
+        <div class="row g-3 g-lg-5">
+          <div class="col-lg-3">
+            <div class="tl-period">${esc(tr(e.period))}</div>
+            ${e.current ? `<span class="badge-current">● ${t("xp.current")}</span>` : ""}
+            ${e.company ? `<div class="tl-company">${esc(e.company)}</div>` : ""}
           </div>
-          <ul class="tl-list">${tr(e.bullets).map((b) => `<li>${b}</li>`).join("")}</ul>
-          ${e.tags && e.tags.length ? `<div class="tags">${e.tags.map((g) => `<span class="tag">${esc(g)}</span>`).join("")}</div>` : ""}
+          <div class="col-lg-9">
+            <h3 class="xp-title">${esc(tr(e.title))}</h3>
+            ${e.tags && e.tags.length ? `<div class="tags">${e.tags.map((g) => `<span class="tag">${esc(g)}</span>`).join("")}</div>` : ""}
+            <div class="collapse${e.current ? " show" : ""}" id="xp-${i}">
+              <ul class="tl-list">${tr(e.bullets).map((b) => `<li>${b}</li>`).join("")}</ul>
+            </div>
+            <button class="xp-toggle${e.current ? "" : " collapsed"}" type="button" data-bs-toggle="collapse" data-bs-target="#xp-${i}"
+                    aria-expanded="${e.current ? "true" : "false"}" aria-controls="xp-${i}">
+              <span class="when-closed">${t("xp.more")}</span><span class="when-open">${t("xp.less")}</span>
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
         </div>
-      </div>`).join("");
+      </article>`).join("");
 
     // Education
     $("#educationList").innerHTML = D.education.map((e, i) => `
       <div class="col-md-6 col-lg-4 reveal" style="--delay:${i * 110}ms">
         <div class="card glass spotlight tilt edu-card">
           <div class="edu-icon"><i class="bi ${e.icon}"></i></div>
-          <span class="tl-period">${esc(tr(e.period))}${e.current ? `<span class="badge-current">● ${lang === "es" ? "En curso" : "Ongoing"}</span>` : ""}</span>
+          <span class="tl-period">${esc(tr(e.period))}${e.current ? `<span class="badge-current">● ${t("edu.current")}</span>` : ""}</span>
           <h3 class="edu-title">${esc(tr(e.title))}</h3>
           <div class="edu-school">${esc(e.school)}</div>
-          <p class="text-body-secondary mb-0">${esc(tr(e.text))}</p>
         </div>
       </div>`).join("");
 
     // Skills
-    $("#skillsList").innerHTML = D.skills.map((s, i) => `
-      <div class="col-md-6 col-lg-4 reveal" style="--delay:${(i % 3) * 100}ms">
-        <div class="card glass spotlight skill-card">
-          <div class="skill-head"><i class="bi ${s.icon}"></i><h3>${esc(tr(s.title))}</h3></div>
-          <div>${tr(s.items).map((it) => `<span class="skill-pill">${esc(it)}</span>`).join("")}</div>
+    // Skills: una fila por categoría (más los idiomas al final)
+    const skillRows = D.skills.map((s) => ({ icon: s.icon, title: tr(s.title), items: tr(s.items) }));
+    skillRows.push({
+      icon: "bi-translate", title: t("skills.languages"),
+      items: D.languages.map((l) => `${tr(l.name)} · ${tr(l.level)}`)
+    });
+    $("#skillsList").innerHTML = skillRows.map((s, i) => `
+      <div class="skill-row reveal" style="--delay:${(i % 4) * 60}ms">
+        <div class="row g-3 align-items-center">
+          <div class="col-lg-4"><h3 class="skill-cat"><span class="skill-idx">${String(i + 1).padStart(2, "0")}</span>${esc(s.title)}</h3></div>
+          <div class="col-lg-8"><div class="skill-pills">${s.items.map((it) => `<span class="skill-pill">${esc(it)}</span>`).join("")}</div></div>
         </div>
-      </div>`).join("");
-
-    $("#languagesList").innerHTML = D.languages.map((l) => `
-      <div class="col-md-6">
-        <div class="lang-row"><strong>${esc(tr(l.name))}</strong><span class="lang-level">${esc(tr(l.level))}</span></div>
-        <div class="lang-bar"><span style="--w:${l.value}%"></span></div>
       </div>`).join("");
 
     // Projects
@@ -198,7 +213,7 @@
   function afterRender() {
     // Scroll reveal
     if (revealObserver) revealObserver.disconnect();
-    const targets = $$(".reveal, .tl-item, .section-head");
+    const targets = $$(".reveal, .section-head");
     if (reduceMotion || !("IntersectionObserver" in window)) {
       targets.forEach((el) => el.classList.add("is-visible"));
     } else {
@@ -285,12 +300,10 @@
   }
 
   /* ------------------------------------------------------------------
-     Scroll: navbar, barra de progreso, línea de la timeline
+     Scroll: navbar y barra de progreso
      ------------------------------------------------------------------ */
   const nav = $("#mainNav");
   const progress = $(".scroll-progress");
-  const fill = $(".timeline-fill");
-  const timeline = $("#timeline");
   let ticking = false;
 
   function onScroll() {
@@ -298,11 +311,6 @@
     nav.classList.toggle("scrolled", y > 20);
     const h = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
-
-    const r = timeline.getBoundingClientRect();
-    const start = window.innerHeight * 0.65;
-    const p = Math.min(1, Math.max(0, (start - r.top) / r.height));
-    fill.style.height = (p * 100).toFixed(2) + "%";
     ticking = false;
   }
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });

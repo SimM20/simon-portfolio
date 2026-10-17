@@ -148,24 +148,21 @@
     <section id="about" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-num">01</span>
+          <div class="section-meta"><span class="section-num">01</span><span class="section-kicker" data-i18n="kicker.about">Perfil</span></div>
           <h2 class="section-title" data-i18n="nav.about">Sobre mí</h2>
         </div>
 
-        <div class="row g-4 align-items-stretch">
+        <div class="row g-4 g-lg-5 align-items-end">
           <div class="col-lg-7 reveal">
-            <div class="card glass h-100">
-              <div class="card-body p-4 p-lg-5">
-                <p class="lead-big" id="aboutHeadline"></p>
-                <p class="text-body-secondary mb-4" id="aboutSummary"></p>
-                <div class="row g-3" id="aboutInfo"></div>
-              </div>
-            </div>
+            <p class="statement" id="aboutHeadline"></p>
           </div>
-          <div class="col-lg-5">
-            <div class="highlights-grid h-100" id="highlights"></div>
+          <div class="col-lg-5 reveal" style="--delay:120ms">
+            <p class="about-summary" id="aboutSummary"></p>
           </div>
         </div>
+
+        <div class="row g-3 mt-4" id="aboutInfo"></div>
+        <div class="highlights-grid mt-3" id="highlights"></div>
       </div>
     </section>
 
@@ -173,13 +170,10 @@
     <section id="experience" class="section section-alt">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-num">02</span>
+          <div class="section-meta"><span class="section-num">02</span><span class="section-kicker" data-i18n="kicker.experience">Trayectoria</span></div>
           <h2 class="section-title" data-i18n="nav.experience">Experiencia</h2>
         </div>
-        <div class="timeline" id="timeline">
-          <div class="timeline-line" aria-hidden="true"><div class="timeline-fill"></div></div>
-          <div id="timelineItems"></div>
-        </div>
+        <div class="xp-list" id="timelineItems"></div>
       </div>
     </section>
 
@@ -187,7 +181,7 @@
     <section id="education" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-num">03</span>
+          <div class="section-meta"><span class="section-num">03</span><span class="section-kicker" data-i18n="kicker.education">Formación</span></div>
           <h2 class="section-title" data-i18n="nav.education">Educación</h2>
         </div>
         <div class="row g-4" id="educationList"></div>
@@ -198,21 +192,10 @@
     <section id="skills" class="section section-alt">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-num">04</span>
+          <div class="section-meta"><span class="section-num">04</span><span class="section-kicker" data-i18n="kicker.skills">Stack & herramientas</span></div>
           <h2 class="section-title">Skills</h2>
         </div>
-        <div class="row g-4" id="skillsList"></div>
-
-        <div class="row g-4 mt-1">
-          <div class="col-12 reveal">
-            <div class="card glass">
-              <div class="card-body p-4">
-                <h3 class="h5 mb-4"><i class="bi bi-translate text-accent me-2"></i><span data-i18n="skills.languages">Idiomas</span></h3>
-                <div class="row g-4" id="languagesList"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="skill-rows" id="skillsList"></div>
       </div>
     </section>
 
@@ -220,7 +203,7 @@
     <section id="projects" class="section d-none">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-num">05</span>
+          <div class="section-meta"><span class="section-num">05</span><span class="section-kicker" data-i18n="kicker.projects">Trabajos</span></div>
           <h2 class="section-title" data-i18n="nav.projects">Proyectos</h2>
         </div>
         <div class="row g-4" id="projectsList"></div>
@@ -232,12 +215,18 @@
       <div class="container">
         <div class="contact-card reveal">
           <div class="blob blob-3" aria-hidden="true"></div>
-          <p class="eyebrow justify-content-center"><span data-i18n="contact.eyebrow">¿Hablamos?</span></p>
+          <p class="eyebrow"><span data-i18n="contact.eyebrow">¿Hablamos?</span></p>
           <h2 class="contact-title" data-i18n="contact.title">Construyamos algo juntos</h2>
-          <p class="text-body-secondary mx-auto contact-sub" data-i18n="contact.sub">
-            Estoy abierto a nuevas oportunidades, proyectos y colaboraciones.
-          </p>
-          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4" id="contactButtons"></div>
+          <div class="row g-4 align-items-end">
+            <div class="col-lg-4">
+              <p class="text-body-secondary contact-sub mb-0" data-i18n="contact.sub">
+                Estoy abierto a nuevas oportunidades, proyectos y colaboraciones.
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="d-flex flex-wrap justify-content-lg-end gap-3" id="contactButtons"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

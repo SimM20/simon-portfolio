@@ -38,8 +38,8 @@ window.CV = {
   },
 
   summary: {
-    es: "Actualmente soy Analista de Soluciones Digitales en el área de IT de Venoil S.A., donde desarrollo software de integración de datos industriales, automatizaciones y chatbots. Vengo del desarrollo de videojuegos y C++, con experiencia en sistemas AAA, entornos de realidad virtual y lógica de alto rendimiento, y base en Ingeniería en Computación, diseño UI/UX y manejo de memoria. Me apasiona construir software que resuelva problemas reales, con interfaces intuitivas.",
-    en: "I'm currently a Digital Solutions Analyst in the IT department at Venoil S.A., building industrial data integration software, automations and chatbots. My background is in game development and C++, with hands-on experience in AAA systems, VR environments and high-performance logic, plus foundations in Computer Engineering, UI/UX design and memory management. Passionate about building software that solves real problems, with intuitive interfaces."
+    es: "Analista de Soluciones Digitales en Venoil S.A. Desarrollo integraciones de datos industriales, automatizaciones y chatbots, con base en C++, desarrollo de videojuegos y diseño UI/UX.",
+    en: "Digital Solutions Analyst at Venoil S.A. I build industrial data integrations, automations and chatbots, with a background in C++, game development and UI/UX design."
   },
 
   // Datos destacados que aparecen en "Sobre mí"
